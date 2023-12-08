@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { VariableSizeGrid as Grid } from "react-window";
 
 interface Column {
@@ -7,9 +7,16 @@ interface Column {
   width: number;
 }
 
+interface Person {
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  status: number; // Assuming a numeric status field (0 or 1)
+}
+
 interface DynamicTableProps {
   columns: Column[];
-  data: any[]; // Adjust this type based on your actual data structure
+  data: Person[];
   rowHeight: number;
   columnWidth: (column: Column) => number;
 }
@@ -20,10 +27,50 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
   rowHeight,
   columnWidth,
 }) => {
-  const rowCount = data.length;
+  const [sortConfig, setSortConfig] = useState<{
+    key: string;
+    direction: string;
+  } | null>(null);
+
+  const requestSort = (key: string) => {
+    let direction = "ascending";
+
+    if (
+      sortConfig &&
+      sortConfig.key === key &&
+      sortConfig.direction === "ascending"
+    ) {
+      direction = "descending";
+    } else if (
+      sortConfig &&
+      sortConfig.key === key &&
+      sortConfig.direction === "descending"
+    ) {
+      direction = ""; // Disable sorting on subsequent clicks
+    }
+
+    setSortConfig({ key, direction });
+  };
+
+  const sortedData = React.useMemo(() => {
+    if (sortConfig === null || sortConfig.direction === "") {
+      return data;
+    }
+
+    return [...data].sort((a, b) => {
+      if (a[sortConfig.key] < b[sortConfig.key]) {
+        return sortConfig.direction === "ascending" ? -1 : 1;
+      }
+      if (a[sortConfig.key] > b[sortConfig.key]) {
+        return sortConfig.direction === "ascending" ? 1 : -1;
+      }
+      return 0;
+    });
+  }, [data, sortConfig]);
+
+  const rowCount = sortedData.length;
   const columnCount = columns.length;
 
-  // Calculate the total width of the table
   const totalWidth = columns.reduce(
     (total, column) => total + columnWidth(column),
     0
@@ -33,8 +80,19 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
     <div>
       <div className="table-header">
         {columns.map((column, index) => (
-          <div key={index} style={{ width: columnWidth(column) }}>
+          <div
+            key={index}
+            style={{ width: columnWidth(column) }}
+            onClick={() => requestSort(column.id)}
+          >
             {column.label}
+            {sortConfig &&
+              sortConfig.key === column.id &&
+              sortConfig.direction && (
+                <span>
+                  {sortConfig.direction === "ascending" ? " ▲" : " ▼"}
+                </span>
+              )}
           </div>
         ))}
       </div>
@@ -43,7 +101,7 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
         columnWidth={(index: number) => columnWidth(columns[index])}
         rowCount={rowCount}
         rowHeight={() => rowHeight}
-        height={400}
+        height={300}
         width={totalWidth}
       >
         {({ columnIndex, rowIndex, style }: any) => (
@@ -51,7 +109,7 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
             className={rowIndex % 2 === 0 ? "even-row" : "odd-row"}
             style={style}
           >
-            {data[rowIndex][columns[columnIndex].id]}
+            {sortedData[rowIndex][columns[columnIndex].id]}
           </div>
         )}
       </Grid>

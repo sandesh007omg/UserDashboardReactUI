@@ -13,6 +13,7 @@ const Dashboard = () => {
     isSearchVisible,
     handleSearchChange,
     handleSearchToggle,
+    clonedData,
   } = useDashboard();
 
   return (
@@ -32,6 +33,7 @@ const Dashboard = () => {
             />
             <DynamicTable
               data={data}
+              clonedData={clonedData}
               columns={tableProps?.tableColumns}
               rowHeight={tableProps?.rowHeight}
               columnWidth={columnWidth}

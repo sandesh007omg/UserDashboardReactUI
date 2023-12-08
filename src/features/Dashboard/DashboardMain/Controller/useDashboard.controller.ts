@@ -4,6 +4,7 @@ import useSearch from "./useSearch.controller";
 
 const useDashboard = () => {
   const [data, setData] = useState([]);
+  const [clonedData, setCloneData] = useState([]);
   const {
     searchTerm,
     isSearchVisible,
@@ -14,7 +15,9 @@ const useDashboard = () => {
   useEffect(() => {
     (async () => {
       const userList = await getDashboardListRepo();
+      const newUserList = structuredClone(userList);
       setData(userList);
+      setCloneData(newUserList);
     })();
   }, []);
   return {
@@ -23,6 +26,7 @@ const useDashboard = () => {
     isSearchVisible,
     handleSearchChange,
     handleSearchToggle,
+    clonedData,
   };
 };
 export default useDashboard;
