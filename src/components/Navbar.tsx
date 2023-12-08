@@ -90,6 +90,7 @@ const NavbarStyled = styled.div`
     top: 0;
     left: -100%;
     transition: 850ms;
+    z-index: 2;
   }
 
   .nav-menu.active {
