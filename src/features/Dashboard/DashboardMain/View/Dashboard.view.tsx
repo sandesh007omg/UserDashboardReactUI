@@ -6,6 +6,8 @@ import DashboardStyled from "./Dashboard.style";
 import { STATUS_LIST, tableProps } from "./config";
 import SearchBar from "../Components/Search";
 import MultiSelect from "../../../../components/Select";
+import Cards from "../../../../components/Cards/Cards";
+import CustomerReview from "../../../../components/CustomerReview/CustomerReview";
 
 const Dashboard = () => {
   const {
@@ -47,6 +49,10 @@ const Dashboard = () => {
               columnWidth={columnWidth}
             />
           </div>
+        </Col>
+        <Col md={4}>
+          {" "}
+          <CustomerReview />
         </Col>
       </Row>
     </DashboardStyled>
