@@ -29,18 +29,20 @@ const Dashboard = () => {
         </Col>
         <Col md={12}>
           <div className="card">
-            <caption>Users</caption>
-            <SearchBar
-              searchTerm={searchTerm}
-              isSearchVisible={isSearchVisible}
-              onSearchChange={handleSearchChange}
-              onSearchToggle={handleSearchToggle}
-            />
-            <MultiSelect
-              options={STATUS_LIST}
-              selectedValues={selectedValues}
-              onChange={handleMultiSelectChange}
-            />
+            <div className="header-wrapper">
+              <caption>Users</caption>
+              <SearchBar
+                searchTerm={searchTerm}
+                isSearchVisible={isSearchVisible}
+                onSearchChange={handleSearchChange}
+                onSearchToggle={handleSearchToggle}
+              />
+              <MultiSelect
+                options={STATUS_LIST}
+                selectedValues={selectedValues}
+                onChange={handleMultiSelectChange}
+              />
+            </div>
             <DynamicTable
               data={data}
               clonedData={clonedData}

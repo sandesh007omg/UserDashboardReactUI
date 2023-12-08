@@ -9,20 +9,15 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({
   searchTerm,
-  isSearchVisible,
   onSearchChange,
-  onSearchToggle,
 }) => (
   <div className="search-bar">
-    <button onClick={onSearchToggle}>Toggle Search</button>
-    {isSearchVisible && (
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={onSearchChange}
-      />
-    )}
+    <input
+      type="text"
+      placeholder="Search..."
+      value={searchTerm}
+      onChange={onSearchChange}
+    />
   </div>
 );
 

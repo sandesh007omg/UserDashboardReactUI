@@ -22,19 +22,19 @@ function Navbar() {
   const menuItem = [
     {
       path: routes?.DASHBOARD,
-      name: DASHBOARD?.toLocaleUpperCase(),
+      name: DASHBOARD?.toLowerCase(),
       icon: <FaTh />,
     },
     {
       path: routes?.USERS,
-      name: USERS?.toLocaleUpperCase(),
+      name: USERS?.toLowerCase(),
       icon: <FaUserAlt />,
     },
   ];
 
   return (
     <NavbarStyled>
-      <IconContext.Provider value={{ color: "red" }}>
+      <IconContext.Provider value={{ color: "#000000 " }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
@@ -68,10 +68,11 @@ export { Navbar };
 
 const NavbarStyled = styled.div`
   .navbar {
-    background-color: #060b26;
+    background: rgb(0, 39, 102);
     display: flex;
     justify-content: start;
     align-items: center;
+    height: 56px;
   }
 
   .menu-bars {
@@ -81,7 +82,7 @@ const NavbarStyled = styled.div`
   }
 
   .nav-menu {
-    background-color: #060b26;
+    background-color: #fff;
     width: 250px;
     height: 100vh;
     display: flex;
@@ -104,7 +105,7 @@ const NavbarStyled = styled.div`
     align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: none;
-    height: 60px;
+    height: 56px;
   }
 
   .nav-text a {
@@ -125,12 +126,37 @@ const NavbarStyled = styled.div`
 
   .nav-menu-items {
     width: 100%;
+    box-shadow: rgba(39, 40, 51, 0.12) 0px 10px 17px 5px;
+    li {
+      padding: 24px 24px 0 24px;
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+      span {
+        text-transform: capitalize;
+      }
+    }
+    .menu-bars {
+      margin-left: 3rem;
+      position: relative;
+      top: -9px;
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+  .menu-bars {
+    margin-left: 3rem;
+    svg {
+      fill: #fff;
+    }
   }
 
   .navbar-toggle {
-    background-color: #060b26;
+    background: rgb(0, 39, 102);
     width: 100%;
-    height: 80px;
+    height: 56px;
     display: flex;
     justify-content: start;
     align-items: center;

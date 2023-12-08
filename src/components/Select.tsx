@@ -18,6 +18,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
       options={options}
       value={selectedValues}
       onChange={onChange}
+      classNamePrefix="zindex-2"
     />
   );
 };

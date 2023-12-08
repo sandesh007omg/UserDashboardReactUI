@@ -18,12 +18,19 @@ const DashboardStyled = styled.div`
     margin-bottom: 24px;
     width: 100%;
     background-color: #fff;
+    .header-wrapper {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 12px;
+    }
     caption {
       font-size: 14px;
       font-weight: bold;
       line-height: 21px;
       text-transform: uppercase;
       margin-bottom: 20px;
+      flex: 1;
+      text-align: left;
     }
     .table-header {
       background-color: transparent;
@@ -50,6 +57,29 @@ const DashboardStyled = styled.div`
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+    .search-bar input {
+      display: flex;
+      flex-wrap: wrap;
+      min-width: 32px;
+      min-width: 193px;
+      height: 32px;
+      border: 1px solid rgb(205, 206, 217);
+      background-color: rgb(255, 255, 255);
+      border-radius: 4px;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+      position: relative;
+      padding: 8px;
+    }
+    .zindex-2__control {
+      min-width: 200px;
+    }
+    .css-b62m3t-container,
+    .zindex-2__control,
+    .css-4xgw5l-IndicatorsContainer2 {
+      height: 32px;
+      min-height: 32px;
     }
   }
 `;
