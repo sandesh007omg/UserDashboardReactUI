@@ -15,5 +15,9 @@ export const tableProps = {
     { label: "Address", id: "address", width: 200 },
   ],
 };
+export const STATUS_LIST = [
+  { value: "Active", label: "Active" },
+  { value: "Inactive", label: "Inactive" },
+];
 
 export { DASHBOARD_TITLE };

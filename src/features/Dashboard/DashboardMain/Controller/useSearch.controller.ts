@@ -1,7 +1,7 @@
 import { useState, useMemo, ChangeEvent } from "react";
 
 interface SearchItem {
-  [key: string]: string | number; // Adjust this based on your actual data structure
+  [key: string]: string | number;
 }
 
 interface UseSearchResult {

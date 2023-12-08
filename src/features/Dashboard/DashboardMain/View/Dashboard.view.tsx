@@ -3,8 +3,9 @@ import DynamicTable from "../../../../components/Table";
 import { UserDetails } from "../../../../components/UserDetails";
 import useDashboard from "../Controller/useDashboard.controller";
 import DashboardStyled from "./Dashboard.style";
-import { tableProps } from "./config";
+import { STATUS_LIST, tableProps } from "./config";
 import SearchBar from "../Components/Search";
+import MultiSelect from "../../../../components/Select";
 
 const Dashboard = () => {
   const {
@@ -14,8 +15,10 @@ const Dashboard = () => {
     handleSearchChange,
     handleSearchToggle,
     clonedData,
+    selectedValues,
+    handleMultiSelectChange,
   } = useDashboard();
-
+  console.log(data, "data", selectedValues);
   return (
     <DashboardStyled>
       <Row>
@@ -30,6 +33,11 @@ const Dashboard = () => {
               isSearchVisible={isSearchVisible}
               onSearchChange={handleSearchChange}
               onSearchToggle={handleSearchToggle}
+            />
+            <MultiSelect
+              options={STATUS_LIST}
+              selectedValues={selectedValues}
+              onChange={handleMultiSelectChange}
             />
             <DynamicTable
               data={data}
