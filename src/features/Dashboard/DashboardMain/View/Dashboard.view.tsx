@@ -4,9 +4,17 @@ import { UserDetails } from "../../../../components/UserDetails";
 import useDashboard from "../Controller/useDashboard.controller";
 import DashboardStyled from "./Dashboard.style";
 import { tableProps } from "./config";
+import SearchBar from "../Components/Search";
 
 const Dashboard = () => {
-  const { data } = useDashboard();
+  const {
+    data,
+    searchTerm,
+    isSearchVisible,
+    handleSearchChange,
+    handleSearchToggle,
+  } = useDashboard();
+
   return (
     <DashboardStyled>
       <Row>
@@ -16,6 +24,12 @@ const Dashboard = () => {
         <Col md={12}>
           <div className="card">
             <caption>Users</caption>
+            <SearchBar
+              searchTerm={searchTerm}
+              isSearchVisible={isSearchVisible}
+              onSearchChange={handleSearchChange}
+              onSearchToggle={handleSearchToggle}
+            />
             <DynamicTable
               data={data}
               columns={tableProps?.tableColumns}
