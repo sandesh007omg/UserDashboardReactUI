@@ -1,11 +1,25 @@
+import { ErrorBoundary } from "react-error-boundary";
 import "./App.css";
 import GlobalStyle from "./Global.style";
-import Router from "./routes/route";
+import GeneralRoute from "./routes/generalRoute";
+import { BrowserRouter } from "react-router-dom";
+import { ErrorFallback } from "./services/ErrorBoundary";
+import { Navbar } from "./components/Navbar";
 
 function App() {
+  const handleError = (error: Error, errorInfo: React.ErrorInfo) => {
+    console.error("Error caught by error boundary:", error, errorInfo);
+  };
   return (
     <GlobalStyle>
-      <Router />
+      <ErrorBoundary FallbackComponent={ErrorFallback} onError={handleError}>
+        <BrowserRouter>
+          <Navbar />
+          <div className="section-content">
+            <GeneralRoute />
+          </div>
+        </BrowserRouter>
+      </ErrorBoundary>
     </GlobalStyle>
   );
 }

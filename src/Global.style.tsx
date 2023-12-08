@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const GlobalStyle = styled.div`
+  width: 100vw;
+  height: 100vh;
   body {
     padding-top: 0rem;
     font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI",
