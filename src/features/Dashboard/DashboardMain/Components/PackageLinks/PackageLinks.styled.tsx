@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const RecentBrowserHistoryContainer = styled.section`
+export const PackageLinksContainer = styled.section`
   line-height: 150%;
   display: flex;
   flex-direction: column;

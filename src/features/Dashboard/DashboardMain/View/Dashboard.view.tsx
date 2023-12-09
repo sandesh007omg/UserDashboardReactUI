@@ -4,7 +4,7 @@ import useDashboard, {
 } from "../Controller/useDashboard.controller";
 import DashboardStyled from "./Dashboard.style";
 import MainDash from "./MainDash";
-import AsideDash from "./AsideDash";
+import Aside from "./Aside";
 
 const Dashboard = () => {
   const {
@@ -44,7 +44,7 @@ const Dashboard = () => {
             <MainDash />
           </Col>
           <Col md={3}>
-            <AsideDash />
+            <Aside />
           </Col>
         </Row>
       </DashboardStyled>

@@ -31,6 +31,7 @@ const UserTable = () => {
           options={STATUS_LIST}
           selectedValues={selectedValues}
           onChange={handleMultiSelectChange}
+          placeholder={"Select Status"}
         />
       </div>
       <DynamicTable

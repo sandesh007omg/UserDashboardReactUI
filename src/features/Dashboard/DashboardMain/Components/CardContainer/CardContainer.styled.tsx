@@ -5,7 +5,7 @@ export const Container = styled.section`
   box-shadow: rgba(39, 40, 51, 0.12) 0px 4px 8px 0px;
   border: 1px solid rgba(39, 40, 51, 0.12);
   border-radius: 4px;
-  padding: 24px;
+  padding: 16px;
   margin-bottom: 24px;
   width: 100%;
   height: 105px;

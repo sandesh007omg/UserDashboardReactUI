@@ -1,15 +1,15 @@
 import { useContext } from "react";
-import RecentPageHistory from "../Components/RecentPageHistory";
+import PackageLinks from "../Components/PackageLinks";
 import Updates from "../Components/Updates/Updates";
 import { DashboardMainContext } from "../Controller/useDashboard.controller";
 
-const RadialBar = () => {
+const Aside = () => {
   const { packageObj } = useContext(DashboardMainContext);
   return (
     <aside>
       <Updates />
-      <RecentPageHistory items={Object.keys(packageObj)} />
+      <PackageLinks items={Object.keys(packageObj)} />
     </aside>
   );
 };
-export default RadialBar;
+export default Aside;

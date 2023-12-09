@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { RecentBrowserHistoryContainer } from "./RecentPageHistory.styled";
+import { PackageLinksContainer } from "./PackageLinks.styled";
 
 interface IRecentPageHistoryProps {
   items;
 }
-const RecentPageHistory = ({ items }: IRecentPageHistoryProps) => {
+const PackageLinks = ({ items }: IRecentPageHistoryProps) => {
   const navigate = useNavigate();
   return (
-    <RecentBrowserHistoryContainer className="card">
+    <PackageLinksContainer className="card">
       <h3>Packages Plan Links</h3>
       {items.map((item, index) => (
         <div
@@ -32,8 +32,8 @@ const RecentPageHistory = ({ items }: IRecentPageHistoryProps) => {
           <img src="/images/pricing.svg" alt="" />
         </button>
       </div>
-    </RecentBrowserHistoryContainer>
+    </PackageLinksContainer>
   );
 };
 
-export default RecentPageHistory;
+export default PackageLinks;

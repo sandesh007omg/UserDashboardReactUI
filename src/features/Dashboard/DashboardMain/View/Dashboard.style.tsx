@@ -133,5 +133,13 @@ const DashboardStyled = styled.div`
       }
     }
   }
+  .sales,
+  .users {
+    span {
+      font-size: 24px;
+      color: rgb(40, 125, 60);
+      font-weight: 600;
+    }
+  }
 `;
 export default DashboardStyled;
