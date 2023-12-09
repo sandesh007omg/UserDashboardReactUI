@@ -57,11 +57,11 @@ const DashboardStyled = styled.div`
       font-weight: 400;
       height: 18px;
       & > div {
-        padding-left: 12px;
+        padding-left: 8px;
+        cursor: pointer;
       }
     }
-    .odd-row,
-    .even-row {
+    .row {
       font-weight: 600;
       border-radius: 4px 0 0 4px;
       padding: 4px 8px 4px 14px;
@@ -73,6 +73,7 @@ const DashboardStyled = styled.div`
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      cursor: pointer;
     }
     .search-bar input {
       display: flex;

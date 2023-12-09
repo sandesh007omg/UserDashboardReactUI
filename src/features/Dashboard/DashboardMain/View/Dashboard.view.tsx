@@ -10,6 +10,8 @@ import CustomerReview from "../Components/CustomerReview/CustomerReview";
 import Updates from "../Components/Updates/Updates";
 import RecentPageHistory from "../Components/RecentPageHistory";
 import CardContainer from "../Components/CardContainer";
+import { useNavigate } from "react-router-dom";
+import { DASHBOARD_DRILL_DOWN } from "../../../../constants/route";
 
 const Dashboard = () => {
   const {
@@ -22,6 +24,10 @@ const Dashboard = () => {
     selectedValues,
     handleMultiSelectChange,
   } = useDashboard();
+  const navigate = useNavigate();
+  const onRowClick = (data: any) => {
+    navigate(`${DASHBOARD_DRILL_DOWN}/${data?.id}`, { state: data });
+  };
   console.log(data, "data", selectedValues);
   return (
     <DashboardStyled>
@@ -64,6 +70,7 @@ const Dashboard = () => {
                     columns={tableProps?.tableColumns}
                     rowHeight={tableProps?.rowHeight}
                     columnWidth={columnWidth}
+                    onRowClick={onRowClick}
                   />
                 </div>
               </Col>

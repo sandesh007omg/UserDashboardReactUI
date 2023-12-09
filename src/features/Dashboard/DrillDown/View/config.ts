@@ -1,15 +1,10 @@
-import { convertToTitle } from "../../../../common/helpers";
-import { DASHBOARD } from "../../../../constants/navigationMenu";
-
-const DASHBOARD_TITLE = convertToTitle(DASHBOARD);
+const DRILLDOWN_TITLE = " User Details";
 export const tableProps = {
   rowHeight: 30,
   tableColumns: [
     { label: "SN", id: "sn", width: 100 },
-    { label: "Id", id: "id", width: 100 },
     { label: "Name", id: "name", width: 200 },
     { label: "Username", id: "userName", width: 100 },
-    { label: "Subscribe", id: "subscribed", width: 100 },
     { label: "Email", id: "email", width: 300 },
     { label: "Status", id: "status", width: 100 },
     { label: "Join Date", id: "joinDate", width: 100 },
@@ -22,4 +17,4 @@ export const STATUS_LIST = [
   { value: "Inactive", label: "Inactive" },
 ];
 
-export { DASHBOARD_TITLE };
+export { DRILLDOWN_TITLE };

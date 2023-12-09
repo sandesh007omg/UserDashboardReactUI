@@ -3,6 +3,6 @@ import { getDashboardListRemote } from "./Dashboard.remote";
 
 export const getDashboardListRepo = async () => {
   const result = await getDashboardListRemote();
-  const mappedArr = getDashboardPayloadIn(result);
+  const mappedArr = getDashboardPayloadIn(result?.data, result?.subscribedUser);
   return mappedArr;
 };

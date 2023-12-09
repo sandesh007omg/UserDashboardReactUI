@@ -19,6 +19,7 @@ interface DynamicTableProps {
   data: Person[];
   rowHeight: number;
   columnWidth: (column: Column) => number;
+  onRowClick?: any;
 }
 
 const DynamicTable: React.FC<DynamicTableProps> = ({
@@ -26,6 +27,7 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
   data,
   rowHeight,
   columnWidth,
+  onRowClick,
 }) => {
   const [sortConfig, setSortConfig] = useState<{
     key: string;
@@ -52,12 +54,12 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
     setSortConfig({ key, direction });
   };
 
-  const sortedData = React.useMemo(() => {
+  const sortedData: any = React.useMemo(() => {
     if (sortConfig === null || sortConfig.direction === "") {
       return data;
     }
 
-    return [...data].sort((a, b) => {
+    return [...data].sort((a: any, b: any) => {
       if (a[sortConfig.key] < b[sortConfig.key]) {
         return sortConfig.direction === "ascending" ? -1 : 1;
       }
@@ -106,8 +108,11 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
       >
         {({ columnIndex, rowIndex, style }: any) => (
           <div
-            className={rowIndex % 2 === 0 ? "even-row" : "odd-row"}
+            className={`row ${
+              sortedData[rowIndex]?.subscribed === "Yes" && "subscribed"
+            }`}
             style={style}
+            onClick={() => onRowClick(sortedData[rowIndex])}
           >
             {sortedData[rowIndex][columns[columnIndex].id]}
           </div>
