@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { getDashboardListRepo } from "../Repository/Dashboard.repository";
 import useSearch from "./useSearch.controller";
 import { STATUS_LIST } from "../View/config";
@@ -92,3 +92,5 @@ export const getPackageUserList = async (data: any) => {
   }));
   return resultArray;
 };
+
+export const DashboardMainContext = createContext<any>(null);
