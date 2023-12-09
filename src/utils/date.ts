@@ -90,7 +90,6 @@ const timePresenter = (dateTime) =>
   moment(dateTime).isValid() ? moment(dateTime).format("hh:mm:ss A") : "";
 
 const timewithoutSecond = (dateTime) => (
-  console.log(moment(dateTime)),
   moment(dateTime).isValid() ? moment(dateTime).format("hh:mm A") : ""
 );
 

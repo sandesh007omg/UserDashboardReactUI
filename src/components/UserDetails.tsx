@@ -92,7 +92,6 @@ const UserDetails: React.FC<UserDetailsProps> = ({ title, syncTime }) => {
         <div className="text-holder">
           <div className="sm-card date">
             <div className="lft">
-              <FaHandHoldingWater />
               <span className="rt">Date</span>
             </div>
             <span className="rt">
@@ -122,6 +121,17 @@ const SectionStyled = styled.div`
     cursor: pointer;
   }
   &.user-detail {
+    section {
+      padding: 16px;
+      h3 {
+        font-size: 14px;
+        line-height: 150%;
+      }
+      h1 {
+        font-size: 21px;
+        line-height: 150%;
+      }
+    }
     .text-holder {
       display: flex;
       flex-wrap: wrap;

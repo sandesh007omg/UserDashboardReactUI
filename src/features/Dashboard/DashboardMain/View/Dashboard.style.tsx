@@ -18,6 +18,9 @@ const DashboardStyled = styled.div`
     margin-bottom: 24px;
     width: 100%;
     background-color: #fff;
+    &.CustomerReview {
+      height: 364px;
+    }
     .header-wrapper {
       display: flex;
       gap: 24px;

@@ -18,7 +18,6 @@ function Navbar() {
   const [sidebar, setSidebar] = useState<boolean>(false);
 
   const showSidebar = () => setSidebar(!sidebar);
-
   const menuItem = [
     {
       path: routes?.DASHBOARD,
@@ -48,8 +47,12 @@ function Navbar() {
               </Link>
             </li>
             {menuItem.map((item: SidebarItem, index: number) => {
+              const isActive = location.pathname === item.path;
               return (
-                <li key={index} className={item.name}>
+                <li
+                  key={index}
+                  className={`${item.name} ${isActive ? "active" : ""}`}
+                >
                   <Link to={item.path}>
                     {item.icon}
                     <span>{item.name}</span>
@@ -128,7 +131,11 @@ const NavbarStyled = styled.div`
     width: 100%;
     box-shadow: rgba(39, 40, 51, 0.12) 0px 10px 17px 5px;
     li {
-      padding: 24px 24px 0 24px;
+      padding: 16px 24px 16px 24px;
+      &.active {
+        border-bottom: 2px solid #0b5fff;
+        border-top: 2px solid #0b5fff;
+      }
       a {
         color: #000;
         text-decoration: none;

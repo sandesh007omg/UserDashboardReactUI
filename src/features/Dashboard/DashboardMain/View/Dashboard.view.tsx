@@ -10,33 +10,29 @@ import CustomerReview from "../Components/CustomerReview/CustomerReview";
 import Updates from "../Components/Updates/Updates";
 import RecentPageHistory from "../Components/RecentPageHistory";
 import CardContainer from "../Components/CardContainer";
-import { useNavigate } from "react-router-dom";
-import { DASHBOARD_DRILL_DOWN } from "../../../../constants/route";
 
 const Dashboard = () => {
   const {
     data,
     searchTerm,
+    packageObj,
+    packageTable,
     isSearchVisible,
     handleSearchChange,
     handleSearchToggle,
     clonedData,
     selectedValues,
     handleMultiSelectChange,
+    onRowClick,
   } = useDashboard();
-  const navigate = useNavigate();
-  const onRowClick = (data: any) => {
-    navigate(`${DASHBOARD_DRILL_DOWN}/${data?.id}`, { state: data });
-  };
-  console.log(data, "data", selectedValues);
   return (
-    <DashboardStyled>
+    <DashboardStyled className="custom-scroll">
       <Row>
         <Col md={9}>
           <section>
             <Row>
               <Col md={4}>
-                <UserDetails title={"Sand"} />
+                <UserDetails title={"Sandesh Maharjan"} />
               </Col>
               <Col md={4}>
                 <CardContainer title="Sales">
@@ -74,20 +70,39 @@ const Dashboard = () => {
                   />
                 </div>
               </Col>
+              <Col md={6}>
+                <div className="card">
+                  <h3>Package Users Count</h3>
+                  <div className="table-wrap">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Package Name</th>
+                          <th>Total User</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {packageTable.map((item, index) => (
+                          <tr key={index}>
+                            <td>{item?.title}</td>
+                            <td>{item?.users?.length}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </Col>
+              <Col md={6}>
+                <CustomerReview />
+              </Col>
             </Row>
           </section>
         </Col>
         <Col md={3}>
           <aside>
             <Updates />
-            <CustomerReview />
-            <RecentPageHistory
-              items={[
-                { title: "Package 1" },
-                { title: "Package 2" },
-                { title: "Package 3" },
-              ]}
-            />
+            <RecentPageHistory items={Object.keys(packageObj)} />
           </aside>
         </Col>
       </Row>

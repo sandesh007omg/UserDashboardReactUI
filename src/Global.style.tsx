@@ -16,8 +16,8 @@ const GlobalStyle = styled.div`
     --font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI",
       "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
       "Helvetica Neue", sans-serif !important;
-    --primary-default: #0b5fff;
     --secondary: #6b6c7e;
+    --primary-default: #0b5fff;
   }
 
   html {
@@ -234,6 +234,27 @@ const GlobalStyle = styled.div`
           opacity: 1;
           pointer-events: auto;
         }
+      }
+    }
+  }
+  .custom-scroll {
+    scrollbar-color: #0b5fff transparent;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 2px;
+    }
+    &:hover {
+      &::-webkit-scrollbar-track {
+        background: transparent;
+        width: 4px;
+        height: 1px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #0b5fff;
+        height: 25vh;
       }
     }
   }
