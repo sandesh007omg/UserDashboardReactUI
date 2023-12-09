@@ -2,7 +2,7 @@ import * as navigationMenu from "./navigationMenu";
 
 const NOTFOUND = "*";
 const DASHBOARD = `/${navigationMenu?.DASHBOARD}`;
-const DASHBOARD_DRILL_DOWN = `${DASHBOARD}/${navigationMenu?.DETAILS}`;
+const DASHBOARD_DRILL_DOWN = `${DASHBOARD}`;
 const USERS = `/${navigationMenu?.USERS}`;
 const USERS_DETAILS = `${USERS}/${navigationMenu?.DETAILS}`;
 

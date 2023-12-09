@@ -5,6 +5,7 @@ import { STATUS_LIST } from "../View/config";
 import { userDetails } from "../../DrillDown/mockData/userDetails";
 import { DASHBOARD_DRILL_DOWN } from "../../../../constants/route";
 import { useNavigate } from "react-router-dom";
+import { chartData } from "../View/config";
 
 const useDashboard = () => {
   const navigate = useNavigate();
@@ -49,6 +50,9 @@ const useDashboard = () => {
   const onRowClick = (data: any) => {
     navigate(`${DASHBOARD_DRILL_DOWN}/${data?.id}`, { state: data });
   };
+  const labels = packageTable?.map((a: any) => a?.title);
+  const series = packageTable?.map((a: any) => a?.users?.length);
+  const updatedChartData = { ...chartData, labels, series };
   return {
     data: filteredData,
     searchTerm,
@@ -61,6 +65,7 @@ const useDashboard = () => {
     selectedValues,
     handleMultiSelectChange,
     onRowClick,
+    updatedChartData,
   };
 };
 export default useDashboard;

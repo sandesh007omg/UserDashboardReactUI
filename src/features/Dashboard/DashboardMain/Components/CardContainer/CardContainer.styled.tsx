@@ -8,7 +8,7 @@ export const Container = styled.section`
   padding: 24px;
   margin-bottom: 24px;
   width: 100%;
-  min-height: 105px;
+  height: 105px;
   background-color: #fff;
   .card__title {
     font-weight: 600;

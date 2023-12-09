@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 const DashboardStyled = styled.div`
-  height: calc(100vh - 48px);
-  overflow: auto;
   color: #000;
   font-size: 12px;
   padding: 24px;
   .table-header {
     display: flex;
+  }
+  .apexcharts-legend {
+    left: 98px !important;
   }
   .card {
     position: relative;
@@ -19,7 +20,10 @@ const DashboardStyled = styled.div`
     width: 100%;
     background-color: #fff;
     &.CustomerReview {
-      height: 364px;
+      height: 350px;
+      h3 {
+        margin-bottom: 0;
+      }
     }
     .header-wrapper {
       display: flex;
@@ -100,6 +104,33 @@ const DashboardStyled = styled.div`
     .css-4xgw5l-IndicatorsContainer2 {
       height: 32px;
       min-height: 32px;
+    }
+  }
+
+  .table-package {
+    height: 350px;
+    table {
+      border: 0;
+      th {
+        font-weight: 600;
+      }
+      td,
+      th {
+        padding: 0;
+        border-left: 0;
+        border-right: 0;
+        background: #fff;
+      }
+      thead {
+        tr {
+          height: 18px;
+        }
+      }
+      tbody {
+        tr {
+          height: 30px;
+        }
+      }
     }
   }
 `;

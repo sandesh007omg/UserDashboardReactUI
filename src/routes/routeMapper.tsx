@@ -2,6 +2,7 @@ import * as routes from "../constants/route";
 import Dashboard from "../features/Dashboard/DashboardMain";
 import DrillDown from "../features/Dashboard/DrillDown";
 import NotFound from "../features/NotFound";
+import Users from "../features/Users";
 
 export const routeMapper = [
   {
@@ -20,14 +21,9 @@ export const routeMapper = [
     link: `${routes.DASHBOARD_DRILL_DOWN}/:id`,
     component: <DrillDown />,
   },
-  //   {
-  //     id: 4,
-  //     link: routes.USERS,
-  //     component: <UserRole />,
-  //   },
-  //   {
-  //     id: 5,
-  //     link: `${routes.USERS_DETAILS}/:id`,
-  //     component: <UserRoleDetail />,
-  //   },
+  {
+    id: 4,
+    link: routes.USERS,
+    component: <Users />,
+  },
 ];

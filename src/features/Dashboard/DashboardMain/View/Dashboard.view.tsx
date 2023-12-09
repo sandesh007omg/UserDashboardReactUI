@@ -3,13 +3,14 @@ import DynamicTable from "../../../../components/Table";
 import { UserDetails } from "../../../../components/UserDetails";
 import useDashboard from "../Controller/useDashboard.controller";
 import DashboardStyled from "./Dashboard.style";
-import { STATUS_LIST, tableProps } from "./config";
+import { STATUS_LIST, barChart, chartData, tableProps } from "./config";
 import SearchBar from "../../../../components/Search";
 import MultiSelect from "../../../../components/Select";
 import CustomerReview from "../Components/CustomerReview/CustomerReview";
 import Updates from "../Components/Updates/Updates";
 import RecentPageHistory from "../Components/RecentPageHistory";
 import CardContainer from "../Components/CardContainer";
+import Chart from "react-apexcharts";
 
 const Dashboard = () => {
   const {
@@ -24,6 +25,7 @@ const Dashboard = () => {
     selectedValues,
     handleMultiSelectChange,
     onRowClick,
+    updatedChartData,
   } = useDashboard();
   return (
     <DashboardStyled className="custom-scroll">
@@ -71,7 +73,7 @@ const Dashboard = () => {
                 </div>
               </Col>
               <Col md={6}>
-                <div className="card">
+                <div className="card table-package">
                   <h3>Package Users Count</h3>
                   <div className="table-wrap">
                     <table>
@@ -95,6 +97,16 @@ const Dashboard = () => {
               </Col>
               <Col md={6}>
                 <CustomerReview />
+              </Col>
+              <Col md={6}>
+                <div className="card">
+                  <Chart
+                    options={updatedChartData?.options}
+                    series={updatedChartData?.series}
+                    type="radialBar"
+                    height={390}
+                  />
+                </div>
               </Col>
             </Row>
           </section>

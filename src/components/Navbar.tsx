@@ -134,7 +134,12 @@ const NavbarStyled = styled.div`
       padding: 16px 24px 16px 24px;
       &.active {
         border-bottom: 2px solid #0b5fff;
-        border-top: 2px solid #0b5fff;
+        background: rgba(11, 95, 255, 0.3);
+        svg,
+        a {
+          fill: #fff;
+          color: #ffffff;
+        }
       }
       a {
         color: #000;
@@ -146,8 +151,6 @@ const NavbarStyled = styled.div`
     }
     .menu-bars {
       margin-left: 3rem;
-      position: relative;
-      top: -9px;
       svg {
         fill: #fff;
       }
