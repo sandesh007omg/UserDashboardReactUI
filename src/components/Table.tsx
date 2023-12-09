@@ -77,7 +77,7 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
   );
 
   return (
-    <div>
+    <div className="table">
       <div className="table-header">
         {columns.map((column, index) => (
           <div

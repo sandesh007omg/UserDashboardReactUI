@@ -4,10 +4,12 @@ import { UserDetails } from "../../../../components/UserDetails";
 import useDashboard from "../Controller/useDashboard.controller";
 import DashboardStyled from "./Dashboard.style";
 import { STATUS_LIST, tableProps } from "./config";
-import SearchBar from "../Components/Search";
+import SearchBar from "../../../../components/Search";
 import MultiSelect from "../../../../components/Select";
-import Cards from "../../../../components/Cards/Cards";
-import CustomerReview from "../../../../components/CustomerReview/CustomerReview";
+import CustomerReview from "../Components/CustomerReview/CustomerReview";
+import Updates from "../Components/Updates/Updates";
+import RecentPageHistory from "../Components/RecentPageHistory";
+import CardContainer from "../Components/CardContainer";
 
 const Dashboard = () => {
   const {
@@ -24,37 +26,62 @@ const Dashboard = () => {
   return (
     <DashboardStyled>
       <Row>
-        <Col md={4}>
-          <UserDetails title={"Sand"} />
+        <Col md={9}>
+          <section>
+            <Row>
+              <Col md={4}>
+                <UserDetails title={"Sand"} />
+              </Col>
+              <Col md={4}>
+                <CardContainer title="Sales">
+                  <p>111</p>
+                </CardContainer>
+              </Col>
+              <Col md={4}>
+                <CardContainer title="Total User">
+                  <p>111</p>
+                </CardContainer>
+              </Col>
+              <Col md={12}>
+                <div className="card">
+                  <div className="header-wrapper">
+                    <caption>Users</caption>
+                    <SearchBar
+                      searchTerm={searchTerm}
+                      isSearchVisible={isSearchVisible}
+                      onSearchChange={handleSearchChange}
+                      onSearchToggle={handleSearchToggle}
+                    />
+                    <MultiSelect
+                      options={STATUS_LIST}
+                      selectedValues={selectedValues}
+                      onChange={handleMultiSelectChange}
+                    />
+                  </div>
+                  <DynamicTable
+                    data={data}
+                    clonedData={clonedData}
+                    columns={tableProps?.tableColumns}
+                    rowHeight={tableProps?.rowHeight}
+                    columnWidth={columnWidth}
+                  />
+                </div>
+              </Col>
+            </Row>
+          </section>
         </Col>
-        <Col md={12}>
-          <div className="card">
-            <div className="header-wrapper">
-              <caption>Users</caption>
-              <SearchBar
-                searchTerm={searchTerm}
-                isSearchVisible={isSearchVisible}
-                onSearchChange={handleSearchChange}
-                onSearchToggle={handleSearchToggle}
-              />
-              <MultiSelect
-                options={STATUS_LIST}
-                selectedValues={selectedValues}
-                onChange={handleMultiSelectChange}
-              />
-            </div>
-            <DynamicTable
-              data={data}
-              clonedData={clonedData}
-              columns={tableProps?.tableColumns}
-              rowHeight={tableProps?.rowHeight}
-              columnWidth={columnWidth}
+        <Col md={3}>
+          <aside>
+            <Updates />
+            <CustomerReview />
+            <RecentPageHistory
+              items={[
+                { title: "Package 1" },
+                { title: "Package 2" },
+                { title: "Package 3" },
+              ]}
             />
-          </div>
-        </Col>
-        <Col md={4}>
-          {" "}
-          <CustomerReview />
+          </aside>
         </Col>
       </Row>
     </DashboardStyled>

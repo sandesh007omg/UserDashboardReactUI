@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { formatter, getCurrentDay, routine } from "../utils/date";
-import { FaHandHoldingWater, FaTh } from "react-icons/fa";
+import { FaHandHoldingWater } from "react-icons/fa";
+import CardContainer from "../features/Dashboard/DashboardMain/Components/CardContainer";
 
 interface UserDetailsProps {
   title: string;
@@ -69,33 +70,37 @@ const UserDetails: React.FC<UserDetailsProps> = ({ title, syncTime }) => {
 
   return (
     <SectionStyled className="custom-display user-detail">
-      <img
-        src={`/images/${
-          fullScreen ? "exit-fullscreen" : "enter-fullscreen"
-        }.svg`}
-        className="full-screen"
-        onClick={handleFullScreen}
-        alt="image"
-      />
-      <div className="greet">
-        <h3>{`Good ${routine()} !`}</h3>
-        <h1>
-          {title.length !== 1 ? (
-            title
-          ) : (
-            <span style={{ color: "#fff" }}>XXXXX XXXXX</span>
-          )}
-        </h1>
-      </div>
-      <div className="text-holder">
-        <div className="sm-card date">
-          <div className="lft">
-            <FaHandHoldingWater />
-            <span className="rt">Date</span>
-          </div>
-          <span className="rt">{formatter(getCurrentDay()).format("ll")}</span>
+      <CardContainer>
+        <img
+          src={`/images/${
+            fullScreen ? "exit-fullscreen" : "enter-fullscreen"
+          }.svg`}
+          className="full-screen"
+          onClick={handleFullScreen}
+          alt="image"
+        />
+        <div className="greet">
+          <h3>{`Good ${routine()} !`}</h3>
+          <h1>
+            {title.length !== 1 ? (
+              title
+            ) : (
+              <span style={{ color: "#fff" }}>XXXXX XXXXX</span>
+            )}
+          </h1>
         </div>
-      </div>
+        <div className="text-holder">
+          <div className="sm-card date">
+            <div className="lft">
+              <FaHandHoldingWater />
+              <span className="rt">Date</span>
+            </div>
+            <span className="rt">
+              {formatter(getCurrentDay()).format("ll")}
+            </span>
+          </div>
+        </div>
+      </CardContainer>
     </SectionStyled>
   );
 };
@@ -104,13 +109,6 @@ export { UserDetails };
 
 const SectionStyled = styled.div`
   position: relative;
-  box-shadow: rgba(39, 40, 51, 0.12) 0px 4px 8px 0px;
-  border: 1px solid rgba(39, 40, 51, 0.12);
-  border-radius: 4px;
-  padding: 24px;
-  margin-bottom: 24px;
-  width: 100%;
-  background-color: #fff;
   img {
     position: absolute;
     right: 16px;
@@ -124,7 +122,6 @@ const SectionStyled = styled.div`
     cursor: pointer;
   }
   &.user-detail {
-    padding: 16px;
     .text-holder {
       display: flex;
       flex-wrap: wrap;

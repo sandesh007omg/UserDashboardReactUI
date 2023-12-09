@@ -5,7 +5,7 @@ const DashboardStyled = styled.div`
   overflow: auto;
   color: #000;
   font-size: 12px;
-  padding: 24px 48px;
+  padding: 24px;
   .table-header {
     display: flex;
   }
@@ -23,6 +23,22 @@ const DashboardStyled = styled.div`
       gap: 24px;
       margin-bottom: 12px;
     }
+    .table {
+      overflow: auto;
+      & > div {
+        display: inline-flex;
+      }
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 29px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      flex: 1;
+      text-align: left;
+    }
+    h3,
     caption {
       font-size: 14px;
       font-weight: bold;
