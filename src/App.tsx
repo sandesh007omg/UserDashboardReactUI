@@ -15,7 +15,7 @@ function App() {
       <ErrorBoundary FallbackComponent={ErrorFallback} onError={handleError}>
         <BrowserRouter>
           <Navbar />
-          <div className="section-content">
+          <div className="section-content custom-scroll">
             <GeneralRoute />
           </div>
         </BrowserRouter>

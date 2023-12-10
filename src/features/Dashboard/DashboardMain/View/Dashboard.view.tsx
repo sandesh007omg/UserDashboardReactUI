@@ -38,7 +38,7 @@ const Dashboard = () => {
         updatedChartData,
       }}
     >
-      <DashboardStyled className="custom-scroll">
+      <DashboardStyled>
         <Row>
           <Col md={9}>
             <MainDash />

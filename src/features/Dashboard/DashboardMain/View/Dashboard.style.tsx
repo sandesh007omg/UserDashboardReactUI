@@ -4,9 +4,6 @@ const DashboardStyled = styled.div`
   color: #000;
   font-size: 12px;
   padding: 24px;
-  .table-header {
-    display: flex;
-  }
   .apexcharts-legend {
     left: 98px !important;
   }
@@ -25,16 +22,12 @@ const DashboardStyled = styled.div`
         margin-bottom: 0;
       }
     }
-    .header-wrapper {
-      display: flex;
-      gap: 24px;
-      margin-bottom: 12px;
-    }
-    .table {
-      overflow: auto;
-      & > div {
-        display: inline-flex;
-      }
+    h3 {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 21px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
     }
     h2 {
       font-size: 20px;
@@ -44,79 +37,6 @@ const DashboardStyled = styled.div`
       margin-bottom: 20px;
       flex: 1;
       text-align: left;
-    }
-    h3,
-    caption {
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 21px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      flex: 1;
-      text-align: left;
-    }
-    .table-header {
-      background-color: transparent;
-      border: 0;
-      font-size: 12px;
-      line-height: 15px;
-      color: #6b6c7e;
-      font-weight: 400;
-      height: 18px;
-      & > div {
-        padding-left: 8px;
-        cursor: pointer;
-      }
-    }
-    .row {
-      font-weight: 600;
-      border-radius: 4px 0 0 4px;
-      padding: 4px 8px 4px 14px;
-      white-space: nowrap;
-      width: auto;
-      border-top: 1px solid rgba(46, 91, 255, 0.08);
-      border-bottom: 1px solid rgba(46, 91, 255, 0.08);
-      border-radius: 4px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      cursor: pointer;
-    }
-    .zindex-2__control {
-      min-width: 200px;
-    }
-    .css-b62m3t-container,
-    .zindex-2__control,
-    .css-4xgw5l-IndicatorsContainer2 {
-      height: 32px;
-      min-height: 32px;
-    }
-  }
-
-  .table-package {
-    height: 350px;
-    table {
-      border: 0;
-      th {
-        font-weight: 600;
-      }
-      td,
-      th {
-        padding: 0;
-        border-left: 0;
-        border-right: 0;
-        background: #fff;
-      }
-      thead {
-        tr {
-          height: 18px;
-        }
-      }
-      tbody {
-        tr {
-          height: 30px;
-        }
-      }
     }
   }
   .sales,
