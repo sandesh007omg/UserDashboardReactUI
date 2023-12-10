@@ -1,4 +1,4 @@
-import { UpdatesData } from "../../mockData/user";
+import { UpdatesData } from "../../mockData/updates";
 import styled from "styled-components";
 
 const Updates = () => {

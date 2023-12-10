@@ -1,5 +1,5 @@
 import { userDetails } from "../../DrillDown/mockData/userDetails";
-import { users } from "../mockData/data";
+import { users } from "../mockData/users";
 
 export const getDashboardListRemote = async () => {
   try {
