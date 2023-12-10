@@ -20,6 +20,8 @@ const Dashboard = () => {
     handleMultiSelectChange,
     onRowClick,
     updatedChartData,
+    totalInActiveUserCount,
+    totalActiveUserCount,
   } = useDashboard();
   return (
     <DashboardMainContext.Provider
@@ -36,6 +38,8 @@ const Dashboard = () => {
         handleMultiSelectChange,
         onRowClick,
         updatedChartData,
+        totalInActiveUserCount,
+        totalActiveUserCount,
       }}
     >
       <DashboardStyled>

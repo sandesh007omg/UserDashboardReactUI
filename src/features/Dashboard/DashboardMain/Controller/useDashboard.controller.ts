@@ -7,9 +7,7 @@ import { DASHBOARD_DRILL_DOWN } from "../../../../constants/route";
 import { useNavigate } from "react-router-dom";
 import { chartData } from "../View/config";
 
-interface User {
-  id: number;
-}
+interface User {}
 
 interface Package {
   [key: string]: User[];
@@ -28,6 +26,8 @@ interface DashboardContextProps {
   handleMultiSelectChange: (selectedOptions: any) => void;
   onRowClick: (data: User) => void;
   updatedChartData: { labels: string[]; series: number[] };
+  totalInActiveUserCount: number;
+  totalActiveUserCount: number;
 }
 
 const useDashboard = (): DashboardContextProps => {
@@ -62,7 +62,7 @@ const useDashboard = (): DashboardContextProps => {
       const userList = await getDashboardListRepo();
       const newUserList = structuredClone(userList);
       const packageList = await getGroupedByPackage(userDetails);
-      const newPackageTable = await getPackageUserList(packageList);
+      const newPackageTable: any = await getPackageUserList(packageList);
       if (isMounted) {
         setData(userList);
         setPackageData({ ...packageList });
@@ -87,13 +87,19 @@ const useDashboard = (): DashboardContextProps => {
     setSelectedValues(selectedOptions);
   };
 
-  const onRowClick = (data: User) => {
+  const onRowClick = (data: User | any) => {
     navigate(`${DASHBOARD_DRILL_DOWN}/${data?.id}`, { state: data });
   };
 
   const labels = packageTable?.map((a: any) => a?.title) || [];
   const series = packageTable?.map((a: any) => a?.users?.length) || [];
   const updatedChartData = { ...chartData, labels, series };
+  const totalActiveUser = clonedData?.filter(
+    (a: any) => a?.status === "Active"
+  );
+  const totalInActiveUser = clonedData?.filter(
+    (a: any) => a?.status === "Inactive"
+  );
 
   return {
     data: filteredData,
@@ -108,6 +114,8 @@ const useDashboard = (): DashboardContextProps => {
     handleMultiSelectChange,
     onRowClick,
     updatedChartData,
+    totalInActiveUserCount: totalInActiveUser?.length,
+    totalActiveUserCount: totalActiveUser?.length,
   };
 };
 
@@ -137,6 +145,4 @@ export const getPackageUserList = async (data: any) => {
   return resultArray;
 };
 
-export const DashboardMainContext = createContext<DashboardContextProps | null>(
-  null
-);
+export const DashboardMainContext = createContext<any>(null);

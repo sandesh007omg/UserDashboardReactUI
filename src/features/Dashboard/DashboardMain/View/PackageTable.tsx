@@ -6,7 +6,6 @@ interface PackageTableProps {}
 
 const PackageTable: React.FC<PackageTableProps> = () => {
   const { packageTable } = useContext(DashboardMainContext);
-
   return (
     <PackageTableStyled className="card table-package">
       <h3>Package Users Count</h3>
@@ -15,7 +14,7 @@ const PackageTable: React.FC<PackageTableProps> = () => {
           <thead>
             <tr>
               <th>Package Name</th>
-              <th>Total User</th>
+              <th>Total Customers</th>
             </tr>
           </thead>
           <tbody>
@@ -31,6 +30,16 @@ const PackageTable: React.FC<PackageTableProps> = () => {
               )
             )}
           </tbody>
+          <tfoot>
+            <tr>
+              <th>
+                <b>Total</b>
+              </th>
+              <th>
+                <b>{getSum(packageTable)}</b>
+              </th>
+            </tr>
+          </tfoot>
         </table>
       </div>
     </PackageTableStyled>
@@ -38,7 +47,12 @@ const PackageTable: React.FC<PackageTableProps> = () => {
 };
 
 export default PackageTable;
-
+const getSum = (list: any) => {
+  const sum = list?.reduce((accumulator: any, currentValue: any) => {
+    return Number(accumulator) + Number(currentValue?.users?.length);
+  }, 0);
+  return sum;
+};
 export const PackageTableStyled = styled.section`
   &.table-package {
     height: 350px;
@@ -59,9 +73,15 @@ export const PackageTableStyled = styled.section`
           height: 18px;
         }
       }
+      tfoot,
       tbody {
         tr {
           height: 30px;
+        }
+      }
+      tfoot {
+        th {
+          color: #000;
         }
       }
     }

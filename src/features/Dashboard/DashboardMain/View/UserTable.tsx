@@ -22,7 +22,7 @@ const UserTable = () => {
     <DynamicTableStyled>
       <div className="card">
         <div className="header-wrapper">
-          <caption>Users</caption>
+          <caption>Customers</caption>
           <SearchBar
             searchTerm={searchTerm}
             isSearchVisible={isSearchVisible}

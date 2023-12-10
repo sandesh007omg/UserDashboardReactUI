@@ -17,10 +17,7 @@ const DashboardStyled = styled.div`
     width: 100%;
     background-color: #fff;
     &.CustomerReview {
-      height: 350px;
-      h3 {
-        margin-bottom: 0;
-      }
+      height: 459px;
     }
     h3 {
       font-size: 16px;
@@ -39,8 +36,14 @@ const DashboardStyled = styled.div`
       text-align: left;
     }
   }
-  .sales,
-  .users {
+  .inactive {
+    span {
+      font-size: 24px;
+      color: rgb(218, 20, 20);
+      font-weight: 600;
+    }
+  }
+  .active {
     span {
       font-size: 24px;
       color: rgb(40, 125, 60);

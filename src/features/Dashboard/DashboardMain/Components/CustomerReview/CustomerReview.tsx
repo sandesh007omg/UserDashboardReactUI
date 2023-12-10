@@ -5,7 +5,7 @@ import styled from "styled-components";
 const CustomerReview = () => {
   return (
     <CustomerReviewStyled className="CustomerReview card">
-      <h3>Customer Review</h3>
+      <h3>Customers Review</h3>
       <Chart options={data?.options} series={data?.series} type="area" />
     </CustomerReviewStyled>
   );

@@ -7,7 +7,7 @@ const RadialBars: React.FC = () => {
 
   return (
     <div className="card">
-      <h3>PACKAGE USERS RADIAL BAR</h3>
+      <h3>PACKAGE Customers RADIAL BAR</h3>
       <Chart
         options={updatedChartData?.options}
         series={updatedChartData?.series}

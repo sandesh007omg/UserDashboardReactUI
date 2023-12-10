@@ -1,30 +1,19 @@
-# React + TypeScript + Vite
+## Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Customers feature serves as the main hub for managing and viewing customer information within the application. It includes a table that offers the following functionalities:
 
-Currently, two official plugins are available:
+- **Sorting:** Users can sort the table based on different criteria such as customer name, ID, or any other relevant attribute by clicking on header th.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Searching:** A search functionality is provided, allowing users to quickly locate specific customers by entering relevant keywords.
 
-## Expanding the ESLint configuration
+- **Filtering by Status:** Users can filter the table based on the status of customers, making it easy to identify and manage customers with specific characteristics.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Navigation to Customer Details:** Clicking on a row in the table navigates the user to a dedicated customer details page, providing in-depth information about the selected customer.
 
-- Configure the top-level `parserOptions` property like this:
+## Features
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Main customer card with an interactive table.
+- Sorting functionality for table columns.
+- Search functionality for quick customer lookup.
+- Filter options based on customer status.
+- Seamless navigation to detailed customer information.

@@ -12,7 +12,7 @@ interface UseSearchResult {
   filteredData: SearchItem[];
 }
 
-const useSearch = (initialData: SearchItem[]): UseSearchResult => {
+const useSearch = (initialData: SearchItem[] | any): UseSearchResult => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [isSearchVisible, setIsSearchVisible] = useState<boolean>(false);
 
@@ -25,7 +25,7 @@ const useSearch = (initialData: SearchItem[]): UseSearchResult => {
   };
 
   const filteredData = useMemo(() => {
-    return initialData?.filter((item) =>
+    return initialData?.filter((item: any) =>
       Object.values(item).some((value) =>
         String(value).toLowerCase().includes(searchTerm.toLowerCase())
       )
