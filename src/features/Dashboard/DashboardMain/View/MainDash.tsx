@@ -4,20 +4,20 @@ import CardContainer from "../Components/CardContainer";
 import UserTable from "./UserTable";
 import PackageTable from "./PackageTable";
 import RadialBars from "./RadialBars";
-import CustomerReview from "../Components/CustomerReview/CustomerReview";
+import CustomerReview from "../Components/CustomerReview";
 
 const MainDash = () => {
   return (
     <main>
       <Row>
         <Col md={4}>
-          <UserDetails title={"Sandesh Maharjan"} />
+          <UserDetails title={"Admin"} />
         </Col>
         <Col md={4} className="sales">
-          <CardContainer title="Sales" value={1111} />
+          <CardContainer title="Total Active User" value={1111} />
         </Col>
         <Col md={4} className="users">
-          <CardContainer title="Total User" value={1111} />
+          <CardContainer title="Total Inactive User" value={1111} />
         </Col>
         <Col md={12}>
           <UserTable />

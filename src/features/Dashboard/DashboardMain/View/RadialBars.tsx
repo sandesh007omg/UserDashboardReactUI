@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { DashboardMainContext } from "../Controller/useDashboard.controller";
 import Chart from "react-apexcharts";
 
-const RadialBars = () => {
+const RadialBars: React.FC = () => {
   const { updatedChartData } = useContext(DashboardMainContext);
+
   return (
     <div className="card">
       <h3>PACKAGE USERS RADIAL BAR</h3>
@@ -16,4 +17,5 @@ const RadialBars = () => {
     </div>
   );
 };
+
 export default RadialBars;

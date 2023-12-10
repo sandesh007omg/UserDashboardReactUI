@@ -82,20 +82,6 @@ const DashboardStyled = styled.div`
       text-overflow: ellipsis;
       cursor: pointer;
     }
-    .search-bar input {
-      display: flex;
-      flex-wrap: wrap;
-      min-width: 32px;
-      min-width: 193px;
-      height: 32px;
-      border: 1px solid rgb(205, 206, 217);
-      background-color: rgb(255, 255, 255);
-      border-radius: 4px;
-      -webkit-box-pack: end;
-      justify-content: flex-end;
-      position: relative;
-      padding: 8px;
-    }
     .zindex-2__control {
       min-width: 200px;
     }

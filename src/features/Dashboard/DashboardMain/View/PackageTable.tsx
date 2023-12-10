@@ -1,8 +1,11 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { DashboardMainContext } from "../Controller/useDashboard.controller";
 
-const PackageTable = () => {
+interface PackageTableProps {}
+
+const PackageTable: React.FC<PackageTableProps> = () => {
   const { packageTable } = useContext(DashboardMainContext);
+
   return (
     <div className="card table-package">
       <h3>Package Users Count</h3>
@@ -15,16 +18,22 @@ const PackageTable = () => {
             </tr>
           </thead>
           <tbody>
-            {packageTable.map((item, index) => (
-              <tr key={index}>
-                <td>{item?.title}</td>
-                <td>{item?.users?.length}</td>
-              </tr>
-            ))}
+            {packageTable.map(
+              (
+                item: { title: string; users: string | number },
+                index: number
+              ) => (
+                <tr key={index}>
+                  <td>{item?.title}</td>
+                  <td>{item?.users?.length}</td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </div>
     </div>
   );
 };
+
 export default PackageTable;

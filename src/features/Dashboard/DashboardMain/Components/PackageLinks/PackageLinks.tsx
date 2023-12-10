@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { PackageLinksContainer } from "./PackageLinks.styled";
 
 interface IRecentPageHistoryProps {
-  items;
+  items: any;
 }
 const PackageLinks = ({ items }: IRecentPageHistoryProps) => {
   const navigate = useNavigate();

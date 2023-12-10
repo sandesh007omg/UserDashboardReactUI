@@ -7,8 +7,7 @@ interface ICardContainer {
   value?: string | number;
 }
 
-const CardContainer = ({ title, children, value }: ICardContainer) => {
-  console.log(value);
+const CardContainer = ({ title = "", children, value }: ICardContainer) => {
   return (
     <Container>
       {title?.length > 0 && (

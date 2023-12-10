@@ -7,6 +7,7 @@ import { FaTh, FaUserAlt } from "react-icons/fa";
 import * as routes from "../constants/route";
 import { DASHBOARD, USERS } from "../constants/navigationMenu";
 import styled from "styled-components";
+import { useOutsideClick } from "../hooks/useClickOutside";
 
 interface SidebarItem {
   name: string;
@@ -30,7 +31,7 @@ function Navbar() {
       icon: <FaUserAlt />,
     },
   ];
-
+  const ref = useOutsideClick(() => setSidebar(false));
   return (
     <NavbarStyled>
       <IconContext.Provider value={{ color: "#000000 " }}>
@@ -40,7 +41,7 @@ function Navbar() {
           </Link>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-          <ul className="nav-menu-items" onClick={showSidebar}>
+          <ul className="nav-menu-items" onClick={showSidebar} ref={ref}>
             <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
                 <AiIcons.AiOutlineClose />
